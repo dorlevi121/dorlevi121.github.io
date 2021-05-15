@@ -9723,6 +9723,14 @@ button.bg-dark:focus {
   text-align: center !important;
 }
 
+.text-orange {
+  color: var(--orange);
+}
+
+.text-dark {
+  color: var(--gray-dark);
+}
+
 @media (min-width: 576px) {
   .text-sm-left {
     text-align: left !important;
