@@ -10163,3 +10163,38 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+
+
+.water {
+  position: relative;
+  height: 100px;
+}
+.water h1 {
+  position: absolute;
+  color: #fff;
+  font-size: 6em;
+}
+
+.water h1:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #6c757d;
+}
+
+.water h1:nth-child(2) {
+  color: #bd5d38;
+  animation: animate 3s ease-in-out infinite;
+}
+
+/* .water h1:nth-child(2) span{
+  color: black;
+} */
+
+@keyframes animate {
+  0%, 100% {
+     clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 56% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+  }
+ }
