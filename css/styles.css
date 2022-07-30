@@ -461,7 +461,7 @@ mark,
 }
 
 .list-inline-item:not(:last-child) {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 .initialism {
@@ -10130,6 +10130,7 @@ p.lead {
 }
 
 .dev-icons {
+  display: flex;
   font-size: 3rem;
 }
 
