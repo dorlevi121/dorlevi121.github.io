@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/blog.css" rel="stylesheet" />
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -49,7 +50,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#seo">Angular SEO</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#change-detection">Change Detection</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#universal">Angular Universal</a></li>
             </ul>
         </div>
@@ -60,17 +61,20 @@
     <!-- Page Content-->
     <main class="container-fluid p-0">
         <!-- SEO -->
-        <article class="p-3 p-lg-5" id="seo">
+        <article class="p-3 p-lg-5 tutorial" id="change-detection">
             <header>
-                <h2 class="text-orange" id="seo">SEO with Angular</h2>
-                <h3 class="subheading mb-3">ALearn how to optimize your Angular website for search engine crawling,
-                    rendering and indexing in this technical SEO guide.</h3>
-                <p class="muted">15/05/2021</p>
+                <a class="text-orange tutorial-title" href="blog/change-detection.html">מנגון Change Detection של אנגולר</a>
+                <h3 class="subheading mb-3 tutorial-preview">כמתכנת אנגולר אני מאמין שלא פעם יצא לך לחשוב איך אנגולר
+                    מזהה שינויים בנתונים מרנדר מחדש את ה- view.
+                    זה נקרא Change Detection Strategy. במדריך הזה נסקור את המנגנון הזה של אנגולר ונלמד איך להשתמש בו.
+                </h3>
+                <p class="muted">06/09/2022</p>
             </header>
             <div class="text-dark">
-                <p>text text text text text text text text text text text text text text text text text text text text
-                    text
+                <p>הטכניקת של הזהוי שינויים בעצם משווה בין 2 states - הנוכחי והחדש אם יש שינוי ביניהם זה אומר שהדף צריך
+                    להתרנדר. אז מה שקורה המתכנת עשה שינוי בקומפוננטה ואנגולר מרנדר מחדש את העמוד.
                 </p>
+                <a class="">קרא עוד...</a>
             </div>
         </article>
         <hr class="m-0" />

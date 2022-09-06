@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dor Levi - Frontend Developer</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/blog.css" rel="stylesheet" />
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W6R674N');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6R674N" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">
+            <span class="d-block d-lg-none">Dor Levi</span>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                    src="../assets/img/dor.jpg" alt="..." /></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#change-detection">Change Detection</a>
+                </li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#universal">Angular Universal</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="resume-section p-3 p-lg-5 d-flex d-column" id="blog">
+        <h1>מנגון Change Detection של אנגולר</h1>
+    </header>
+    <!-- Page Content-->
+    <main class="container-fluid p-0 tutorial-wrapper">
+
+        <h1 style="text-align:right">&nbsp;</h1>
+
+        <hr />
+        <p style="text-align:right"><span style="font-size:16px"><span>כמתכנת אנגולר אני מאמין שלא פעם יצא לך לחשוב איך אנגולר מזהה שינויים בנתונים מרנדר מחדש את ה- view.</span></span></p>
+        
+        <p><span style="font-size:16px"><span>זה נקרא&nbsp;Change Detection Strategy. במדריך הזה נסקור את המנגנון הזה של אנגולר ונלמד איך להשתמש בו.</span></span></p>
+        
+        <h2 style="text-align:right"><span style="font-size:18px"><span><strong>אז מה זה בעצם&nbsp; Change Detection ?</strong></span></span></h2>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>הטכניקת של הזהוי שינויים בעצם משווה בין 2 סטייטים - הנוכחי והחדש אם יש שינוי ביניהם זה אומר שהדף צריך להתרנדר.</span></span></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אז מה בעצם קורה ? המתכנת עשה שינוי בקומפוננטה ואנגולר מרנדר מחדש את העמוד.</span></span></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>נשמע דיי פשוט וטריוויאלי אבל מה שקורה מאחורי הקלעים זה שאנגולר מחפש את כל הקבצים, מבצע מחדש את כל הביטויים, משווה אותם לערכים הקודמים ומפיץ את השינוי לרכיבי ה-DOM אם מזוהה שינוי.</span></span></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>וככל שהאפליקציה שלנו גדלה אז בדיקה כזאת לוקחת יותר זמן.</span></span></p>
+        
+        <p>&nbsp;</p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אם נסתכל על עץ הקומפוננטות הבא:</span></span></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span><img alt="Angular Component Tree " src="https://lh4.googleusercontent.com/TpGE7YKMgT4tu3fUJ_4uE8EAuI4lHlWTPBSjGihzI_qjvz7qObdzQnBxzjQX-2CSjBGD8xscW8Oe2Xox_FVsTXXWP4EyCozYsp0Z7ZUuMqeJsbT22y3evIgIzHka75S_3DA6pePhuvwNV4wZk6iY2vV6tSdKwDV_jEHmzEixOfhRKuIDzrkoS-USqg" style="height:331px; width:496px" /></span></span></p>
+        
+        <p><br />
+        &nbsp;</p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>ובכל פעם שהמתכנת יעשה שינוי בקומפוננטה ForgotPasswordComponent מנגנון change detection יופעל בצורה הבאה:</span></span></p>
+        
+        <p>&nbsp;</p>
+        
+        <ol>
+            <li style="list-style-type:decimal"><span style="font-size:16px"><span>המנגנון יעבור על כל קומפוננטה בעץ ויבדוק אם יש שינוי בה (הבדיקה מתחילה מלמעלה ללמטה)</span></span></li>
+            <li style="list-style-type:decimal"><span style="font-size:16px"><span>אם אנגולר ימצא שינוי באחת הקומפוננטות הוא יבצע את השיוני ויעשה רנדור מחדש.</span></span></li>
+        </ol>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>לאנגולר יש 2 אסטרטגיות ל- change detection</span></span></p>
+        
+        <ul>
+            <li style="list-style-type:disc"><span style="font-size:16px"><span>Default&nbsp;</span></span></li>
+            <li style="list-style-type:disc"><span style="font-size:16px"><span>onPush</span></span></li>
+        </ul>
+        
+        <p style="text-align:right"><strong><span style="font-size:16px"><span>Defualt:</span></span></strong></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>זה בעצם מה שהסברתי בפסקה הקודם שכל שינוי גורר אחריו בדיקה של כל הקומפננטות מלמעלה למטה.</span></span></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אז כבר הבנו שסוג כזה של התנהגות יכול להשפיע על כל הביצועים של המערכת שלנו.</span></span></p>
+        
+        <p style="text-align:right"><strong><span style="font-size:16px"><span>OnPush:</span></span></strong></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אנחנו משנים את הסטרטגיית של Change Detection ע&quot;י הוספת ChangeDetectionStrategy.OnPush ל- changeDetection ב- @Component.</span></span></p>
+        
+        <p>&nbsp;</p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span><img src="https://lh6.googleusercontent.com/oa8Gy8LTW2jtbpmYYgdKmFH87nu01Zq4r_K4gDGj1Gjxre7kpGL9iN2MJDm2KeIjCjEgigZFN3hFEZk3v9UmfQ5tgnvdbY7U9xagmYTwk4hRcxlx9UKoxLPm3GVX22uwG8DWA2L4iFQWFPh5onQ-IpcboE9Q6_u-Q5t--tOFVspSW7C7i30vHAs8yw" style="height:295px; width:602px" /></span></span></p>
+        
+        <p>&nbsp;</p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>עם ההסטרטגיית OnPush אנחנו בעצם מדלגים על קומפוננטות שממשות onPush ועל כל הילדים שלה.</span></span></p>
+        
+        <p style="text-align:right">&nbsp;</p>
+        
+        <p style="text-align:right"><img alt="Change Detection Strategy with OnPush" src="https://lh3.googleusercontent.com/fdWMMQqi_WE_zQioQr8BtoDLQMSZk0lEclFOaWsKL1yGQHhEWHEr0Vz5uhvHIc8eYDOy90GF0C18iOgrXDlRsWRjDKRBJCtxegKCvqlhYNglhfVGZbs28zns0TzI_6ovNBQRouc" /></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אנגולר יעדכן את הקומפוננטה רק במקרים הבאים:</span></span></p>
+        
+        <ol>
+            <li style="list-style-type:decimal"><span style="font-size:16px"><span>ה- @Input ישתנה רק במקרה שיש הפניה חדשה</span></span></li>
+            <li style="list-style-type:decimal"><span style="font-size:16px"><span>קרה event בקומפוממטה או באחד מהילדים שלה</span></span></li>
+            <li style="list-style-type:decimal"><span style="font-size:16px"><span>אם async pipe מקבל ערך חדש</span></span></li>
+            <li style="list-style-type:decimal"><span style="font-size:16px"><span>הפעלה מנגנון הזיהוי באופן ידני</span></span></li>
+        </ol>
+        
+        <p>&nbsp;</p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>נרחיב על כל אחד מהמקרים:</span></span></p>
+        
+        <p style="text-align:right"><strong><span style="font-size:16px"><span>@input</span></span></strong></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אנגולר יריץ change detector במקרה של שינוי בהפניה. ז&quot;א אם נרצה להעביר אובייקט נצטרך לשנות אותו ע&quot;י יצירת אובייקט חדש.</span></span></p>
+        
+        <p><strong><span style="font-size:16px">Event Handler</span></strong></p>
+        
+        <p><span style="font-size:16px">כל אירוע שקורה בקומפוננטה או בילדים של הקומפוננטה יפעיל את כל עץ הקומפוננטות של האפליקציה.</span></p>
+        
+        <p><span style="font-size:16px">אירועים שלא יופעלו כאשר נשתמש ב onPush:</span></p>
+        
+        <p><span style="font-size:16px">* promise</span></p>
+        
+        <p><span style="font-size:16px">* setTimout</span></p>
+        
+        <p><span style="font-size:16px">* setInterval</span></p>
+        
+        <p><span style="font-size:16px">* RxJS observable subscription</span></p>
+        
+        <p style="text-align:right"><strong><span style="font-size:16px"><span>Async Pipe</span></span></strong></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אנגולר מריץ אוטומטית את markForCheck בכל פעם שאנחנו מפעילים את ה- aync pipe&nbsp;</span></span></p>
+        
+        <p style="text-align:right"><strong><span style="font-size:16px"><span>הפעלת מנגנון הזיהוי באופן ידני:</span></span></strong></p>
+        
+        <p style="text-align:right"><span style="font-size:16px"><span>אז אנחנו יכולים לפהעיל את זה ע&quot;י שימוש:</span></span></p>
+        
+        <ul>
+            <li style="list-style-type:disc"><span style="font-size:16px"><span>detectChanges() - ירץ את ה- change detection על הקומפוננטה ועל כל הילדים שלה</span></span></li>
+            <li style="list-style-type:disc"><span style="font-size:16px"><span>ApplicationRef.tick() - ירץ את ה- change detection על כל עץ הקומפוננטות שזה בעצם על כל הפרויקט.</span></span></li>
+            <li style="list-style-type:disc"><span style="font-size:16px"><span>markForCheck() - אינו גורם לזיהוי שינוי, אלא מסמן את כל אבות onPush כפי שנבדקו פעם אחת, או כחלק מהמחזור הנוכחי או השינוי הבא.</span></span></li>
+        </ul>
+        
+        <p>&nbsp;</p>
+        
+        <p><strong><span style="font-size:16px">לסיכום</span></strong></p>
+        
+        <p><span style="font-size:16px">אנגולר&nbsp;Change Detection הוא מנגנון מאוד חשוב.</span></p>
+        
+        <p><span style="font-size:16px">הוא מספק לנו ביצועים טובים יותר לאפליקציה שלנו בגלל שאנגולר לא צריך לבדוק בכל שינוי את כל הקומפוננטות</span></p>
+        
+    </main>
+    <!-- Bootstrap core JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

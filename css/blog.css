@@ -1,0 +1,23 @@
+.tutorial,
+.tutorial-wrapper {
+    direction: rtl;
+    text-align: right;
+}
+
+.tutorial-wrapper {
+    padding: 20px;
+}
+
+.tutorial-title {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tutorial-preview {
+    direction: rtl;
+    font-size: 1rem;
+    text-align: right;
+}
